@@ -29,8 +29,6 @@ For easy access to the Rate per 100,000 enter *. For all other metrics enter one
   <code>newCasesBySpecimenDate</code> New cases by specimen date <br />
   <code>cumCasesBySpecimenDateRate</code> Rate of cumulative cases by specimen date per 100k resident population <br />
   <code>cumCasesBySpecimenDate</code> Cumulative cases by specimen date <br /> 
-  <code>maleCases</code> Male cases (by age)<br /> 
-  <code>femaleCases</code> Female cases (by age)<br /> 
   <code>newPillarOneTestsByPublishDate</code> New pillar one tests by publish date <br /> 
   <code>cumPillarOneTestsByPublishDate</code> Cumulative pillar one tests by publish date <br />
   <code>newPillarTwoTestsByPublishDate</code> New pillar two tests by publish date <br />

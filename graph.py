@@ -5,7 +5,7 @@ import grab
 import json
 import pandas as pd
 
-print("By Evan McNab - v1.0")
+print("By Evan McNab - v1.1")
 print(""" 
                  _____ ______      _______ _____    __  ___                    
                 / ____/ __ \ \    / /_   _|  __ \  /_ |/ _ \                   
@@ -100,10 +100,13 @@ datetoday = str(datetime.date.today())
 #txt = "Rate of COVID-19 Cases in Ipswich Per 100,000"
 txt = input("Enter title>> ")
 
+print(dates["date"].iloc[-1])
+
 if metricName == "newCasesBySpecimenDateRollingRate":
     formattedMetricName = "Rate per 100,000"
 else:
     formattedMetricName = metricName
+
 
 plt.legend()
 plt.xlabel("Date", fontsize = 12)

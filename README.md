@@ -10,6 +10,7 @@ A list of names of metrics and where in the hierarchy an area is: https://corona
 Head on over to the release page for the latest version, or install the python source code and run `graph.py`
 
 ## Usage
+After running the program the following prompts will appear: 
 ```
 Enter number of areas to compare (4 max)
 ```

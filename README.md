@@ -39,7 +39,6 @@ For easy access to the Rate per 100,000 enter *. For all other metrics enter one
   <code>cumPillarFourTestsByPublishDate</code> Cumulative pillar four tests by publish date <br />
   <code>newAdmissions</code> New admissions <br />
   <code>cumAdmissions</code> Cumulative number of admissions <br />
-  <code>cumAdmissionsByAge</code> Cumulative admissions by age <br />
   <code>cumTestsByPublishDate</code> Cumulative tests by publish date <br />
   <code>newTestsByPublishDate</code> New tests by publish date <br />
   <code>covidOccupiedMVBeds</code> COVID-19 occupied beds with mechanical ventilators <br />

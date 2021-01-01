@@ -1,7 +1,4 @@
 # COVID-Graph-Plotter
-~~~~~~For UK data only~~~~~~
-
-# Description 
 
 Allows instant plotting of data posted by the UK Government Coronavirus Dashboard: https://coronavirus.data.gov.uk/
 A list of names of metrics and where in the hierarchy an area is: https://coronavirus.data.gov.uk/details/download
@@ -10,9 +7,12 @@ A list of names of metrics and where in the hierarchy an area is: https://corona
 
 Head on over to the release page for the latest version, or install the python source code and run `graph.py`
 
+Or to use an online version: https://trinket.io/python3/d821668441?toggleCode=true&runOption=run
+
 ## Usage
+After running the program the following prompts will appear: 
 ```
-Enter number of areas to compare (4 max)>>
+Enter number of areas to compare (4 max)
 ```
 This software allows comparison of a maxiumum of 4 different areas currently. So enter the number which you wish to compare
 
@@ -23,36 +23,33 @@ For easy access to the Rate per 100,000 enter *. For all other metrics enter one
 
 <details>
   <summary>List of all valid metric names</summary>
-  `newCasesByPublishDate` New cases by publish date
-  `cumCasesByPublishDate` Cumulative cases by publish date
-  `cumCasesBySpecimenDateRate` Rate of cumulative cases by publish date per 100k resident population
-  `newCasesBySpecimenDate` New cases by specimen date
-  `cumCasesBySpecimenDateRate` Rate of cumulative cases by specimen date per 100k resident population
-  `cumCasesBySpecimenDate` Cumulative cases by specimen date
-  `maleCases` Male cases (by age)
-  `femaleCases` Female cases (by age)
-  `newPillarOneTestsByPublishDate` New pillar one tests by publish date
-  `cumPillarOneTestsByPublishDate` Cumulative pillar one tests by publish date
-  `newPillarTwoTestsByPublishDate` New pillar two tests by publish date
-  `cumPillarTwoTestsByPublishDate`Cumulative pillar two tests by publish date
-  `newPillarThreeTestsByPublishDate` New pillar three tests by publish date
-  `cumPillarThreeTestsByPublishDate` Cumulative pillar three tests by publish date 
-  `newPillarFourTestsByPublishDate` New pillar four tests by publish date
-  `cumPillarFourTestsByPublishDate` Cumulative pillar four tests by publish date
-  `newAdmissions` New admissions
-  `cumAdmissions`Cumulative number of admissions
-  `cumAdmissionsByAge` Cumulative admissions by age
-  `cumTestsByPublishDate` Cumulative tests by publish date
-  `newTestsByPublishDate` New tests by publish date
-  `covidOccupiedMVBeds` COVID-19 occupied beds with mechanical ventilators
-  `hospitalCases` Hospital cases
-  `plannedCapacityByPublishDate` Planned capacity by publish date
-  `newDeaths28DaysByPublishDate` Deaths within 28 days of positive test
-  `cumDeaths28DaysByPublishDate` Cumulative deaths within 28 days of positive test
-  `cumDeaths28DaysByPublishDateRate` Rate of cumulative deaths within 28 days of positive test per 100k resident population
-  `newDeaths28DaysByDeathDate` Deaths within 28 days of positive test by death date
-  `cumDeaths28DaysByDeathDate` Cumulative deaths within 28 days of positive test by death date
-  `cumDeaths28DaysByDeathDateRate`Rate of cumulative deaths within 28 days of positive test by death date per 100k resident population
+	<code>newCasesByPublishDate</code> New cases by publish date <br />
+  <code>cumCasesByPublishDate</code> Cumulative cases by publish date <br />
+  <code>cumCasesBySpecimenDateRate</code> Rate of cumulative cases by publish date per 100k resident population <br />
+  <code>newCasesBySpecimenDate</code> New cases by specimen date <br />
+  <code>cumCasesBySpecimenDateRate</code> Rate of cumulative cases by specimen date per 100k resident population <br />
+  <code>cumCasesBySpecimenDate</code> Cumulative cases by specimen date <br /> 
+  <code>newPillarOneTestsByPublishDate</code> New pillar one tests by publish date <br /> 
+  <code>cumPillarOneTestsByPublishDate</code> Cumulative pillar one tests by publish date <br />
+  <code>newPillarTwoTestsByPublishDate</code> New pillar two tests by publish date <br />
+  <code>cumPillarTwoTestsByPublishDate</code> Cumulative pillar two tests by publish date <br />
+  <code>newPillarThreeTestsByPublishDate</code> New pillar three tests by publish date <br /> 
+  <code>cumPillarThreeTestsByPublishDate</code> Cumulative pillar three tests by publish date <br /> 
+  <code>newPillarFourTestsByPublishDate</code> New pillar four tests by publish date <br /> 
+  <code>cumPillarFourTestsByPublishDate</code> Cumulative pillar four tests by publish date <br />
+  <code>newAdmissions</code> New admissions <br />
+  <code>cumAdmissions</code> Cumulative number of admissions <br />
+  <code>cumTestsByPublishDate</code> Cumulative tests by publish date <br />
+  <code>newTestsByPublishDate</code> New tests by publish date <br />
+  <code>covidOccupiedMVBeds</code> COVID-19 occupied beds with mechanical ventilators <br />
+  <code>hospitalCases</code> Hospital cases <br /> 
+  <code>plannedCapacityByPublishDate</code> Planned capacity by publish date <br />
+  <code>newDeaths28DaysByPublishDate</code> Deaths within 28 days of positive test <br />
+  <code>cumDeaths28DaysByPublishDate</code> Cumulative deaths within 28 days of positive test <br />
+  <code>cumDeaths28DaysByPublishDateRate</code> Rate of cumulative deaths within 28 days of positive test per 100k resident population <br /> 
+  <code>newDeaths28DaysByDeathDate</code> Deaths within 28 days of positive test by death date <br /> 
+  <code>cumDeaths28DaysByDeathDate</code> Cumulative deaths within 28 days of positive test by death date <br /> 
+  <code>cumDeaths28DaysByDeathDateRate</code> Rate of cumulative deaths within 28 days of positive test by death date per 100k resident population <br />
 </details> 
 
 ```

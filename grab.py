@@ -1,5 +1,6 @@
 from requests import get
 from json import dumps
+from urllib.parse import urlencode
 
 
 def grabJson(areaType, areaName, metricName):
@@ -20,6 +21,7 @@ def grabJson(areaType, areaName, metricName):
         "structure": dumps(structure, separators=(",", ":"))
         }
 
+    encoded_params = urlencode(api_params)
 
     response = get(ENDPOINT, params=api_params, timeout=20)
 

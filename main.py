@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import figure
-import datetime
+#import datetime
 import grab
 import json
 import pandas as pd
 
-print("By Evan McNab - v1.1")
+print("By Evan McNab - v1.2")
 print(""" 
                  _____ ______      _______ _____    __  ___                    
                 / ____/ __ \ \    / /_   _|  __ \  /_ |/ _ \                   
@@ -49,9 +49,11 @@ for i in range(num):
               
     areaTypeSelector = int(input(">> "))
              
-    
+    areaName.append(input("Enter area name (exact)>> ").upper())
+
     if areaTypeSelector == 1:
         areaType.append("overview")
+        areaName[i] = "UNITED KINGDOM"
                   
     elif areaTypeSelector == 2:
         areaType.append("nation")
@@ -71,7 +73,6 @@ for i in range(num):
     else: 
         print("Invalid Entry - Restart")
     
-    areaName.append(input("Enter area name (exact)>> ").upper())
 
 
     rawData = grab.grabJson(areaType[i], areaName[i], metricName)
@@ -95,12 +96,13 @@ for i in range(num):
         a4 = datesOrdered3.plot(x="date", y="metric", label = areaName[i], figsize= (10,7), ax=a3)
 
 
-datetoday = str(datetime.date.today())
+#datetoday = str(datetime.date.today())
 
 #txt = "Rate of COVID-19 Cases in Ipswich Per 100,000"
 txt = input("Enter title>> ")
 
-print(dates["date"].iloc[-1])
+updatedDate = str(dates["date"].iloc[-1])
+print(updatedDate)
 
 if metricName == "newCasesBySpecimenDateRollingRate":
     formattedMetricName = "Rate per 100,000"
@@ -109,7 +111,7 @@ else:
 
 
 plt.legend()
-plt.xlabel("Date", fontsize = 12)
+plt.xlabel("Date (Updated: " + updatedDate + ")", fontsize = 12)
 plt.ylabel(formattedMetricName, fontsize = 12)
 plt.title(txt, fontsize=20)
 plt.show()

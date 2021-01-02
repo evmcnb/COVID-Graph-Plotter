@@ -20,12 +20,13 @@ This software allows comparison of a maxiumum of 4 different areas currently. So
 
 To the side of this is a drop-down list of region types. This is **only** for use for some areas which appear under multiple categories. To spot this when plotted these regions will extend beyond others:
 
-![alt text](https://imgur.com/oAHGd1S)
+![alt text](https://imgur.com/oAHGd1S.png)
 ![alt text](https://imgur.com/DopVJRH)
 
 Examples of these regions are Manchester and Camden. To fix this a region type needs to be specified (`utla` in this case):
-![alt text](https://imgur.com/r5k2pmE)
-![alt text](https://imgur.com/DMuzp48)
+
+![alt text](https://imgur.com/r5k2pmE.png)
+![alt text](https://imgur.com/DMuzp48.png)
 
 ### Selecting metric 
 ```

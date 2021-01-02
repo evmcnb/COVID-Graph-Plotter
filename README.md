@@ -7,7 +7,7 @@ A list of names of metrics and where in the hierarchy an area is: https://corona
 
 Head on over to the release page for the latest version, or install the python source code and run `main.py`
 
-Or to use an online version: https://trinket.io/python3/9694673877?outputOnly=true&runOption=run
+Or to use an online version (v1.2.5): https://trinket.io/python3/9694673877?outputOnly=true&runOption=run
 
 ## Usage
 After running the program the following prompts will appear: 

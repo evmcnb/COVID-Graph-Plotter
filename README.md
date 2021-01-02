@@ -22,12 +22,17 @@ To the side of this is a drop-down list of region types. This is **only** for us
 
 <img align="centre" src="https://imgur.com/oAHGd1S.png">
 
-<img align="centre" src="https://imgur.com/DopVJRH.png>
+<p align="center">
+<img src="https://imgur.com/DopVJRH.png">
+</p>
 
 Examples of these regions are Manchester and Camden. To fix this a region type needs to be specified (`utla` in this case):
 
-![alt text](https://imgur.com/r5k2pmE.png)
-![alt text](https://imgur.com/DMuzp48.png)
+
+<img align="centre" src="https://imgur.com/r5k2pmE.png">
+<p align="center">
+<img src="https://imgur.com/DMuzp48.png">
+</p>
 
 ### Selecting metric 
 ```

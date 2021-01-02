@@ -18,7 +18,7 @@ etc
 ```
 This software allows comparison of a maxiumum of 4 different areas currently. So enter the names of the areas which you wish to compare.
 
-To the side of this is a drop-down list of region types. This is **only** for use for some areas which appear under multiple categories. To spot this when plotted these regions will extend beyond others:
+To the side of this is a drop-down list of region types. This is **only** for use for some areas which appear under multiple categories. To spot this when plotted, these regions will extend beyond others:
 
 <img align="centre" src="https://imgur.com/oAHGd1S.png">
 

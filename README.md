@@ -28,11 +28,11 @@ To the side of this is a drop-down list of region types. This is **only** for us
 
 Examples of these regions are Manchester and Camden. To fix this a region type needs to be specified (`utla` in this case):
 
-
-<img align="centre" src="https://imgur.com/r5k2pmE.png">
 <p align="center">
-<img src="https://imgur.com/DMuzp48.png">
+<img align="centre" src="https://imgur.com/r5k2pmE.png">
 </p>
+<img src="https://imgur.com/DMuzp48.png">
+
 
 ### Selecting metric 
 ```

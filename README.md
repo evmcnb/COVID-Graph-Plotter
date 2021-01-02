@@ -53,14 +53,9 @@ For easy access to the Rate per 100,000 enter *. For all other metrics enter one
 </details> 
 
 ```
-Enter the number of the area type 
-```
-For this you need to know what level the area of interest is. For example if I wanted to plot England I would enter 2, as England is a nation. If I wanted to plot Essex I would enter 5 as it is a county (upper-tier local authority)
-
-```
 Enter area name (exact)
 ```
-Enter the name of the area that you are interested in. To continue the above examples, for England enter `England` and for Essex enter `Essex`.
+Enter the name of the area that you are interested in. For England enter `England` and for Essex enter `Essex` etc.
 
 These steps then repeat for as many areas as you wish to compare.
 

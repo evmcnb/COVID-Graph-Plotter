@@ -3,11 +3,11 @@ from json import dumps
 from urllib.parse import urlencode
 
 
-def grabJson(areaType, areaName, metricName):
+def grabJson(areaName, metricName):
     ENDPOINT = "https://api.coronavirus.data.gov.uk/v1/data"
 
     filters = [
-        f"areaType={ areaType }",
+        #f"areaType={ areaType }",
         f"areaName={ areaName }"
         ]
 
@@ -23,7 +23,7 @@ def grabJson(areaType, areaName, metricName):
 
     encoded_params = urlencode(api_params)
 
-    response = get(ENDPOINT, params=api_params, timeout=20)
+    response = get(ENDPOINT, params=encoded_params, timeout=20)
 
     if response.status_code >= 400:
         raise RuntimeError(f'Request failed: { response.text }')

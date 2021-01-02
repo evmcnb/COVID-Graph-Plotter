@@ -7,7 +7,7 @@ import pandas as pd
 import traceback
 
 
-print("By Evan McNab - v1.2")
+print("By Evan McNab - v1.2.5")
 print(""" 
                  _____ ______      _______ _____    __  ___                    
                 / ____/ __ \ \    / /_   _|  __ \  /_ |/ _ \                   
@@ -67,6 +67,7 @@ def main():
             
             
             """)
+            
             main()
         
 

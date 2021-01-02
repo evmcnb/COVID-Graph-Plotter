@@ -44,7 +44,7 @@ def submit():
 
     if ent_fourth_area.get() != "":
         num += 1
-        areaName[num-1] = ent_fourth_area.get().upper
+        areaName[num-1] = ent_fourth_area.get().upper()
         if combo_fourth_area.get() != "":
             areaType[num-1] = combo_fourth_area.get()
 

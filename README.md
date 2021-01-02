@@ -7,19 +7,38 @@ A list of names of metrics and where in the hierarchy an area is: https://corona
 
 Head on over to the release page for the latest version, or install the python source code and run `main.py`
 
-Or to use an online version: https://trinket.io/python3/9694673877?outputOnly=true&runOption=run
+Or to use an online version (v1.2.5): https://trinket.io/python3/9694673877?outputOnly=true&runOption=run
 
 ## Usage
-After running the program the following prompts will appear: 
+### Entering the areas of Interest: 
 ```
-Enter number of areas to compare (4 max)
+First Area:
+Second Area:
+etc
 ```
-This software allows comparison of a maxiumum of 4 different areas currently. So enter the number which you wish to compare
+This software allows comparison of a maxiumum of 4 different areas currently. So enter the names of the areas which you wish to compare.
 
+To the side of this is a drop-down list of region types. This is **only** for use for some areas which appear under multiple categories. To spot this when plotted these regions will extend beyond others:
+
+<img align="centre" src="https://imgur.com/oAHGd1S.png">
+
+<p align="center">
+<img src="https://imgur.com/DopVJRH.png">
+</p>
+
+Examples of these regions are Manchester and Camden. To fix this a region type needs to be specified (`utla` in this case):
+
+<p align="center">
+<img align="centre" src="https://imgur.com/r5k2pmE.png">
+</p>
+<img src="https://imgur.com/DMuzp48.png">
+
+
+### Selecting metric 
 ```
-Metric name (for rate per 100k enter *)
+Metric:
 ```
-For easy access to the Rate per 100,000 enter *. For all other metrics enter one of from the list of valid metirc names
+See a list of what most metric names mean below: 
 
 <details>
   <summary>List of all valid metric names</summary>
@@ -52,20 +71,13 @@ For easy access to the Rate per 100,000 enter *. For all other metrics enter one
   <code>cumDeaths28DaysByDeathDateRate</code> Rate of cumulative deaths within 28 days of positive test by death date per 100k resident population <br />
 </details> 
 
+### Plotting Graph
 ```
-Enter area name (exact)
-```
-Enter the name of the area that you are interested in. For England enter `England` and for Essex enter `Essex` etc.
-
-These steps then repeat for as many areas as you wish to compare.
-
-Once this has finished the final prompt will be shown:
-```
-Enter title
+Title:
 ```
 This will be the title of the graph shown so name it something useful!
 
-After this a graph will be shown of the output.
+After this click the plot button
 
 ## Dependancies
 A list of dependancies and installation commands: 

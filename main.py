@@ -1,3 +1,6 @@
+import tkinter as tk
+from tkinter.ttk import *
+from tkinter import messagebox
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import figure
 #import datetime
@@ -6,73 +9,65 @@ import json
 import pandas as pd
 import traceback
 
+regions = ["nation", "region", "nhsRegion", "utla", "ltla"]
 
-print("By Evan McNab - v1.2.5")
-print(""" 
-                 _____ ______      _______ _____    __  ___                    
-                / ____/ __ \ \    / /_   _|  __ \  /_ |/ _ \                   
-               | |   | |  | \ \  / /  | | | |  | |  | | (_) |                  
-               | |   | |  | |\ \/ /   | | | |  | |  | |\__, |                  
-               | |___| |__| | \  /   _| |_| |__| |  | |  / /                   
-  _____       __\_____\____/  _\/__ |_____|_____/___|_|_/_/_____ ______ _____  
- |  __ \   /\|__   __|/\     |  __ \| |    / __ \__   __|__   __|  ____|  __ \ 
- | |  | | /  \  | |  /  \    | |__) | |   | |  | | | |     | |  | |__  | |__) |
- | |  | |/ /\ \ | | / /\ \   |  ___/| |   | |  | | | |     | |  |  __| |  _  / 
- | |__| / ____ \| |/ ____ \  | |    | |___| |__| | | |     | |  | |____| | \ \ 
- |_____/_/    \_\_/_/    \_\ |_|    |______\____/  |_|     |_|  |______|_|  \_\ 
- 
- 
- """)
-
-def main():
+def submit():
 
     num = 0
-    
-    #Sets the number of areas to compare to use in for loop with exception handling
-    try:
-        num = int(input("Enter number of areas to compare (4 max)>> "))
-    except Exception as e:
-        print("""Invalid Entry - Restart
-        
-        
-        """)
-        main()
+    areaName = ["","","",""]
+    areaType = ["","","",""]
+    txt = ent_title.get()
+    metricName = combo_metric.get()
 
-    #If the number entered is too high give warning and set to maximum
-    if num >= 5:
-        print("Too many areas to compare - 4 is the maximum")
-        num = 4
+    #Error checking
+    if metricName == "":
+        messagebox.showerror("Select Metric", "Please select a metric from the drop-down menu")
 
-    #Selects the metric to graph with short cut for rate per 100k
-    metricSelector = input("Metric name (for rate per 100k enter *)>> ")
 
-    if metricSelector == "*":
-        metricName = "newCasesBySpecimenDateRollingRate"
-    else: 
-        metricName = metricSelector
+    if ent_first_area.get() != "":
+        num += 1
+        areaName[num-1] = ent_first_area.get().upper()
+        if combo_first_area.get() != "":
+            areaType[num-1] = combo_first_area.get()
 
-    areaName = []
-    rawData = []
+    if ent_second_area.get() != "":
+        num += 1
+        areaName[num-1] = ent_second_area.get().upper()
+        if combo_second_area.get() != "":
+            areaType[num-1] = combo_second_area.get()
+
+    if ent_third_area.get() != "":
+        num += 1
+        areaName[num-1] = ent_third_area.get().upper()
+        if combo_third_area.get() != "":
+            areaType[num-1] = combo_third_area.get()
+
+    if ent_fourth_area.get() != "":
+        num += 1
+        areaName[num-1] = ent_fourth_area.get().upper
+        if combo_fourth_area.get() != "":
+            areaType[num-1] = combo_fourth_area.get()
+
+    #Error Checking
+    if num == 0: 
+        messagebox.showerror("Enter Area", "Please enter at least one area to plot a graph")
 
     #Starts a loop to loop through the number of areas to compare
     for i in range(num): 
-        
-        areaName.append(input("Enter area name {0}/{1} (exact)>> ".format(str(i+1),str(num))).upper())
-        
+
         #Gets the data from the API handling for errors
         try:
-            rawData = grab.grabJson(areaName[i], metricName)
+            rawData = grab.grabJsonAT(areaName[i], metricName, areaType[i])
         except Exception as e:
-            print("""Invalid Entry - Restart
-            
-            
-            """)
-            
-            main()
-        
+            try:
+                rawData = grab.grabJson(areaName[i], metricName)
+            except Exception as e:
+                messagebox.showerror("Request Error", "There was an error in retrieving data. Please check spelling and formatting of areas")
 
+        
         #Formats the data to just dates and the metric
         formattedData = pd.DataFrame(rawData['data']).sort_values(by='date')
+        
 
         datesOrdered = formattedData[formattedData["date"] > "2020-07-31"]
         dates = datesOrdered[["date"]]
@@ -94,8 +89,6 @@ def main():
 
     #datetoday = str(datetime.date.today())
 
-    txt = input("Enter title>> ")
-
     #Gets the most recent date on the retrieved data
     updatedDate = str(dates["date"].iloc[-1])
     print(updatedDate)
@@ -112,15 +105,150 @@ def main():
     plt.ylabel(formattedMetricName, fontsize = 12)
     plt.title(txt, fontsize=20)
     plt.show()
+    
+def clear():
+    ent_first_area.delete(0, tk.END)
+    ent_second_area.delete(0, tk.END)
+    ent_third_area.delete(0, tk.END)
+    ent_fourth_area.delete(0, tk.END)
+    ent_title.delete(0, tk.END)
+    combo_metric.delete(0,tk.END)
+    combo_first_area.delete(0,tk.END)
+    combo_second_area.delete(0,tk.END)
+    combo_third_area.delete(0,tk.END)
+    combo_fourth_area.delete(0,tk.END)
 
 
-restart = "Y"
+# Create a new window with the title "Address Entry Form"
+window = tk.Tk()
+window.title("COVID Graph Plotter v1.3")
+window.resizable(False,False)
 
-while restart == "Y":
-    restart = ""
-    main()
-    restart = input("Plot another graph (Y/N)?>>").upper()
+# Create a new frame `frm_form` to contain the Label
+# and Entry widgets for entering address information.
+frm_form = tk.Frame(relief=tk.FLAT, borderwidth=3)
+# Pack the frame into the window
+frm_form.pack()
+
+# Create the Label and Entry widgets for "First Area"
+lbl_first_area = tk.Label(master=frm_form, text="First Area:")
+ent_first_area = tk.Entry(master=frm_form, width=40)
+
+combo_first_area = Combobox(master=frm_form, width=10)
+combo_first_area["values"] = regions
+# Use the grid geometry manager to place the Label and
+# Entry widgets in the first and second columns of the
+# first row of the grid
+lbl_first_area.grid(row=0, column=0, sticky="e")
+ent_first_area.grid(row=0, column=1)
+combo_first_area.grid(row=0, column=2)
+
+# Create the Label and Entry widgets for "Second Area"
+lbl_second_area = tk.Label(master=frm_form, text="Second Area:")
+ent_second_area = tk.Entry(master=frm_form, width=40)
+
+combo_second_area = Combobox(master=frm_form, width=10)
+combo_second_area["values"] = regions
+combo_second_area.grid(row=1, column=2)
+# Place the widgets in the second row of the grid
+lbl_second_area.grid(row=1, column=0, sticky="e")
+ent_second_area.grid(row=1, column=1)
+combo_second_area.grid(row=1, column=2)
+
+# Create the Label and Entry widgets for "Third Area"
+lbl_third_area = tk.Label(master=frm_form, text="Third Area:")
+ent_third_area = tk.Entry(master=frm_form, width=40)
+
+combo_third_area = Combobox(master=frm_form, width=10)
+combo_third_area["values"] = regions
+combo_third_area.grid(row=2, column=2)
+# Place the widgets in the third row of the grid
+lbl_third_area.grid(row=2, column=0, sticky="e")
+ent_third_area.grid(row=2, column=1)
+
+# Create the Label and Entry widgets for "Fourth Area"
+lbl_fourth_area = tk.Label(master=frm_form, text="Fourth Area:")
+ent_fourth_area = tk.Entry(master=frm_form, width=40)
+
+combo_fourth_area = Combobox(master=frm_form, width=10)
+combo_fourth_area["values"] = regions
+combo_fourth_area.grid(row=3, column=2)
+# Place the widgets in the fourth row of the grid
+lbl_fourth_area.grid(row=3, column=0, sticky=tk.E)
+ent_fourth_area.grid(row=3, column=1)
+
+
+# Create the Label and Entry widgets for "Metric"
+lbl_metric = tk.Label(master=frm_form, text="Metric:")
+combo_metric = Combobox(master=frm_form, width=38)
+
+combo_metric['values'] = ("newCasesBySpecimenDateRollingRate",
+"newCasesByPublishDate",
+"cumCasesByPublishDate",
+"cumCasesBySpecimenDateRate", 
+"newCasesBySpecimenDate", 
+"cumCasesBySpecimenDateRate", 
+"cumCasesBySpecimenDate", 
+"newPillarOneTestsByPublishDate", 
+"cumPillarOneTestsByPublishDate", 
+"newPillarTwoTestsByPublishDate", 
+"cumPillarTwoTestsByPublishDate", 
+"newPillarThreeTestsByPublishDate", 
+"cumPillarThreeTestsByPublishDate", 
+"newPillarFourTestsByPublishDate", 
+"cumPillarFourTestsByPublishDate", 
+"newAdmissions", 
+"cumAdmissions", 
+"cumTestsByPublishDate", 
+"newTestsByPublishDate", 
+"covidOccupiedMVBeds", 
+"hospitalCases", 
+"plannedCapacityByPublishDate", 
+"newDeaths28DaysByPublishDate", 
+"cumDeaths28DaysByPublishDate", 
+"cumDeaths28DaysByPublishDateRate", 
+"newDeaths28DaysByDeathDate", 
+"cumDeaths28DaysByDeathDate", 
+"cumDeaths28DaysByDeathDateRate")
+
+# Place the widgets in the sixth row of the grid
+lbl_metric.grid(row=5, column=0, sticky=tk.E)
+combo_metric.grid(row=5, column=1, pady=10)
+
+
+# Create the Label and Entry widgets for "Title"
+lbl_title = tk.Label(master=frm_form, text="Title:")
+ent_title = tk.Entry(master=frm_form, width=40)
+# Place the widgets in the seventh row of the grid
+lbl_title.grid(row=6, column=0, sticky=tk.E)
+ent_title.grid(row=6, column=1)
+
+
+# Create a new frame `frm_buttons` to contain the
+# Submit and Clear buttons. This frame fills the
+# whole window in the horizontal direction and has
+# 5 pixels of horizontal and vertical padding.
+frm_buttons = tk.Frame()
+frm_buttons.pack(fill=tk.X, ipadx=5, ipady=5)
+
+# Create the "Submit" button and pack it to the
+# right side of `frm_buttons`
+btn_submit = tk.Button(master=frm_buttons, text="Plot", command=submit)
+btn_submit.pack(side=tk.RIGHT, padx=10, ipadx=10)
+
+# Create the "Clear" button and pack it to the
+# right side of `frm_buttons`
+btn_clear = tk.Button(master=frm_buttons, text="Clear", command=clear)
+btn_clear.pack(side=tk.RIGHT, ipadx=10)
 
 
 
 
+
+
+
+
+
+
+# Start the application
+window.mainloop()

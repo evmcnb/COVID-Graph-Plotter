@@ -10,7 +10,7 @@ Head on over to the release page for the latest version, or install the python s
 Or to use an online version (v1.2.5): https://trinket.io/python3/9694673877?outputOnly=true&runOption=run
 
 ## Usage
-After running the program the following prompts will appear: 
+### Entering the areas of Interest: 
 ```
 First Area:
 Second Area:
@@ -18,8 +18,16 @@ etc
 ```
 This software allows comparison of a maxiumum of 4 different areas currently. So enter the names of the areas which you wish to compare.
 
-To the side of this is a drop-down list of region types. This is **only** for use for some areas which appear under multiple categories. To spot this when plotted these regions will extend beyond others. Examples of these regions are Manchester and Camden. In this case the region type would need to be selected (both `utla`)
+To the side of this is a drop-down list of region types. This is **only** for use for some areas which appear under multiple categories. To spot this when plotted these regions will extend beyond others:
 
+![alt text](https://imgur.com/oAHGd1S)
+![alt text](https://imgur.com/DopVJRH)
+
+Examples of these regions are Manchester and Camden. To fix this a region type needs to be specified (`utla` in this case):
+![alt text](https://imgur.com/r5k2pmE)
+![alt text](https://imgur.com/DMuzp48)
+
+### Selecting metric 
 ```
 Metric:
 ```
@@ -56,12 +64,13 @@ See a list of what most metric names mean below:
   <code>cumDeaths28DaysByDeathDateRate</code> Rate of cumulative deaths within 28 days of positive test by death date per 100k resident population <br />
 </details> 
 
+### Plotting Graph
 ```
 Title:
 ```
 This will be the title of the graph shown so name it something useful!
 
-After this a graph will be shown of the output.
+After this click the plot button
 
 ## Dependancies
 A list of dependancies and installation commands: 

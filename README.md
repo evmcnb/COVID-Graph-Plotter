@@ -7,7 +7,7 @@ A list of names of metrics and where in the hierarchy an area is: https://corona
 
 Head on over to the release page for the latest version, or install the python source code and run `main.py`
 
-Or to use an online version: https://trinket.io/python3/13905279aa?outputOnly=true&runOption=run
+Or to use an online version: https://trinket.io/python3/9694673877?outputOnly=true&runOption=run
 
 ## Usage
 After running the program the following prompts will appear: 
@@ -53,14 +53,9 @@ For easy access to the Rate per 100,000 enter *. For all other metrics enter one
 </details> 
 
 ```
-Enter the number of the area type 
-```
-For this you need to know what level the area of interest is. For example if I wanted to plot England I would enter 2, as England is a nation. If I wanted to plot Essex I would enter 5 as it is a county (upper-tier local authority)
-
-```
 Enter area name (exact)
 ```
-Enter the name of the area that you are interested in. To continue the above examples, for England enter `England` and for Essex enter `Essex`.
+Enter the name of the area that you are interested in. For England enter `England` and for Essex enter `Essex` etc.
 
 These steps then repeat for as many areas as you wish to compare.
 

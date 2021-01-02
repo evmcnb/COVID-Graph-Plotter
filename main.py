@@ -57,10 +57,10 @@ def submit():
 
         #Gets the data from the API handling for errors
         try:
-            rawData = grab.grabJsonAT(areaName[i], metricName, areaType[i])
+            rawData = grab.grabJSON(areaName=areaName[i], metricName=metricName, areaType=areaType[i])
         except Exception as e:
             try:
-                rawData = grab.grabJson(areaName[i], metricName)
+                rawData = grab.grabJSON(areaName=areaName[i], metricName=metricName)
             except Exception as e:
                 messagebox.showerror("Request Error", "There was an error in retrieving data. Please check spelling and formatting of {0}. If this does not work it may be possible that the data of {1} does not exist for {0}".format(areaName[i], metricName))
 

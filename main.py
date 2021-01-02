@@ -62,13 +62,11 @@ def submit():
             try:
                 rawData = grab.grabJson(areaName[i], metricName)
             except Exception as e:
-                messagebox.showerror("Request Error", "There was an error in retrieving data. Please check spelling and formatting of areas")
+                messagebox.showerror("Request Error", "There was an error in retrieving data. Please check spelling and formatting of {0}. If this does not work it may be possible that the data of {1} does not exist for {0}".format(areaName[i], metricName))
 
         
         #Formats the data to just dates and the metric
         formattedData = pd.DataFrame(rawData['data']).sort_values(by='date')
-        
-
         datesOrdered = formattedData[formattedData["date"] > "2020-07-31"]
         dates = datesOrdered[["date"]]
 
@@ -189,15 +187,8 @@ combo_metric['values'] = ("newCasesBySpecimenDateRollingRate",
 "newCasesBySpecimenDate", 
 "cumCasesBySpecimenDateRate", 
 "cumCasesBySpecimenDate", 
-"newPillarOneTestsByPublishDate", 
-"cumPillarOneTestsByPublishDate", 
-"newPillarTwoTestsByPublishDate", 
-"cumPillarTwoTestsByPublishDate", 
-"newPillarThreeTestsByPublishDate", 
-"cumPillarThreeTestsByPublishDate", 
-"newPillarFourTestsByPublishDate", 
-"cumPillarFourTestsByPublishDate", 
 "newAdmissions", 
+"newAdmissionsRollingRate",
 "cumAdmissions", 
 "cumTestsByPublishDate", 
 "newTestsByPublishDate", 
@@ -209,7 +200,20 @@ combo_metric['values'] = ("newCasesBySpecimenDateRollingRate",
 "cumDeaths28DaysByPublishDateRate", 
 "newDeaths28DaysByDeathDate", 
 "cumDeaths28DaysByDeathDate", 
-"cumDeaths28DaysByDeathDateRate")
+"cumDeaths28DaysByDeathDateRate",
+"alertLevel",
+"newVirusTests",
+"newVirusTestsRollingRate",
+"transmissionRateMax",
+"transmissionRateMin",
+"newPillarOneTestsByPublishDate", 
+"cumPillarOneTestsByPublishDate", 
+"newPillarTwoTestsByPublishDate", 
+"cumPillarTwoTestsByPublishDate", 
+"newPillarThreeTestsByPublishDate", 
+"cumPillarThreeTestsByPublishDate", 
+"newPillarFourTestsByPublishDate", 
+"cumPillarFourTestsByPublishDate")
 
 # Place the widgets in the sixth row of the grid
 lbl_metric.grid(row=5, column=0, sticky=tk.E)

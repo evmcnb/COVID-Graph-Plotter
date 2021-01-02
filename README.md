@@ -93,3 +93,5 @@ pip install pandas
 ```
 pip install uk-covid19
 ```
+## License
+See the [LICENSE](LICENSE.md) file for license rights and limitations (GPLv3).

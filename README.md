@@ -41,7 +41,7 @@ Metric:
 See a list of what most metric names mean below: 
 
 <details>
-  <summary>List of all valid metric names</summary>
+  <summary>List of most valid metric names.</summary>
 	<code>newCasesByPublishDate</code> New cases by publish date <br />
   <code>cumCasesByPublishDate</code> Cumulative cases by publish date <br />
   <code>cumCasesBySpecimenDateRate</code> Rate of cumulative cases by publish date per 100k resident population <br />

@@ -128,8 +128,6 @@ def clear():
     combo_second_area.delete(0,tk.END)
     combo_third_area.delete(0,tk.END)
     combo_fourth_area.delete(0,tk.END)
-    ent_url.config(state='normal')
-    combo_metric.config(state='normal')
 
 
 # Create a new window with the title "Address Entry Form"

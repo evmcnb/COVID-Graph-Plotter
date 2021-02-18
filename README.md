@@ -69,6 +69,11 @@ See a list of what most metric names mean below:
   <code>newDeaths28DaysByDeathDate</code> Deaths within 28 days of positive test by death date <br /> 
   <code>cumDeaths28DaysByDeathDate</code> Cumulative deaths within 28 days of positive test by death date <br /> 
   <code>cumDeaths28DaysByDeathDateRate</code> Rate of cumulative deaths within 28 days of positive test by death date per 100k resident population <br />
+	<code>cumPeopleVaccinatedFirstDoseByPublishDate</code> Cumlative people vaccinated with first dose by published date <br />
+	<code>cumPeopleVaccinatedCompleteByPublishDate</code> Cumlative people vaccinated with both doses by published date <br />
+	<code>weeklyPeopleVaccinatedFirstDoseByVaccinationDate</code> Number of people per week vaccinated with first dose <br />
+	<code>weeklyPeopleVaccinatedSecondDoseByVaccinationDate</code> Number of people per week vaccinated with second dose <br />
+	
 </details> 
 
 ### Plotting Graph

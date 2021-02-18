@@ -9,15 +9,27 @@ import json
 import pandas as pd
 import traceback
 
-regions = ["nation", "region", "nhsRegion", "utla", "ltla"]
+regions = ["nation", "region", "nhsRegion", "nhsTrust", "utla", "ltla"]
+
 
 def submit():
 
-    num = 0
-    areaName = ["","","",""]
-    areaType = ["","","",""]
-    txt = ent_title.get()
-    metricName = combo_metric.get()
+    if (ent_url.get() == ""): 
+        num = 0
+        areaName = ["","","",""]
+        areaType = ["","","",""]
+        txt = ent_title.get()
+        metricName = combo_metric.get()
+    else:
+        num = 0
+        areaName = ["","","",""]
+        areaType = ["","","",""]
+        txt = ent_title.get()
+
+        split1 = ent_url.get().split("metric=")
+        split2 = split1[1]
+        split3 = split2.split("&format=")
+        metricName = split3[0]
 
     #Error checking
     if metricName == "":
@@ -110,16 +122,19 @@ def clear():
     ent_third_area.delete(0, tk.END)
     ent_fourth_area.delete(0, tk.END)
     ent_title.delete(0, tk.END)
+    ent_url.delete(0, tk.END)
     combo_metric.delete(0,tk.END)
     combo_first_area.delete(0,tk.END)
     combo_second_area.delete(0,tk.END)
     combo_third_area.delete(0,tk.END)
     combo_fourth_area.delete(0,tk.END)
+    ent_url.config(state='normal')
+    combo_metric.config(state='normal')
 
 
 # Create a new window with the title "Address Entry Form"
 window = tk.Tk()
-window.title("COVID Graph Plotter v1.3")
+window.title("COVID Graph Plotter v1.3.4")
 window.resizable(False,False)
 
 # Create a new frame `frm_form` to contain the Label
@@ -193,7 +208,11 @@ combo_metric['values'] = ("newCasesBySpecimenDateRollingRate",
 "cumTestsByPublishDate", 
 "newTestsByPublishDate", 
 "covidOccupiedMVBeds", 
-"hospitalCases", 
+"hospitalCases",
+"cumPeopleVaccinatedFirstDoseByPublishDate",
+"cumPeopleVaccinatedCompleteByPublishDate",
+"weeklyPeopleVaccinatedFirstDoseByVaccinationDate",
+"weeklyPeopleVaccinatedSecondDoseByVaccinationDate", 
 "plannedCapacityByPublishDate", 
 "newDeaths28DaysByPublishDate", 
 "cumDeaths28DaysByPublishDate", 
@@ -217,16 +236,24 @@ combo_metric['values'] = ("newCasesBySpecimenDateRollingRate",
 
 # Place the widgets in the sixth row of the grid
 lbl_metric.grid(row=5, column=0, sticky=tk.E)
-combo_metric.grid(row=5, column=1, pady=10)
+combo_metric.grid(row=5, column=1, pady=5)
 
 
 # Create the Label and Entry widgets for "Title"
 lbl_title = tk.Label(master=frm_form, text="Title:")
 ent_title = tk.Entry(master=frm_form, width=40)
 # Place the widgets in the seventh row of the grid
-lbl_title.grid(row=6, column=0, sticky=tk.E)
-ent_title.grid(row=6, column=1)
+lbl_title.grid(row=8, column=0, sticky=tk.E, ipady = 20)
+ent_title.grid(row=8, column=1)
 
+tk.Label(master=frm_form, text="OR").grid(row=6, column=1, ipadx = 0, ipady=5)
+
+# Create the Label and Entry widgets for "Title"
+lbl_url = tk.Label(master=frm_form, text="URL:")
+ent_url = tk.Entry(master=frm_form, width=40)
+# Place the widgets in the seventh row of the grid
+lbl_url.grid(row=7, column=0, sticky=tk.E)
+ent_url.grid(row=7, column=1)
 
 # Create a new frame `frm_buttons` to contain the
 # Submit and Clear buttons. This frame fills the
@@ -245,13 +272,7 @@ btn_submit.pack(side=tk.RIGHT, padx=10, ipadx=10)
 btn_clear = tk.Button(master=frm_buttons, text="Clear", command=clear)
 btn_clear.pack(side=tk.RIGHT, ipadx=10)
 
-
-
-
-
-
-
-
+# Dynamic GUI updating
 
 
 # Start the application

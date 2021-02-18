@@ -76,6 +76,11 @@ See a list of what most metric names mean below:
 	
 </details> 
 
+If the metric you want doesn't exist on the list, type it in or paste in the permanent URL of a metric from the [government website](https://coronavirus.data.gov.uk/details/download) into the <code>URL:</code> box. 
+
+An example of what this looks like on the government website:
+<img align="centre" src="https://imgur.com/VcYHj1Q.png">
+
 ### Plotting Graph
 ```
 Title:

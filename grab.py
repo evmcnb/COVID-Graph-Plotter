@@ -3,7 +3,7 @@ from json import dumps
 from urllib.parse import urlencode
 
 def grabJSON(**kwargs):
-    ENDPOINT = "https://api.coronavirus.data.gov.uk/v1/data"
+    ENDPOINT = "https://api.coronavirus.data.gov.uk/v2/data"
 
     filters = [f"areaName={ kwargs['areaName'] }"]
 

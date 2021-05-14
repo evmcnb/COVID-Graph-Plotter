@@ -18,15 +18,7 @@ etc
 ```
 This software allows comparison of a maxiumum of 4 different areas currently. So enter the names of the areas which you wish to compare.
 
-To the side of this is a drop-down list of region types. This is **only** for use for some areas which appear under multiple categories. To spot this when plotted, these regions will extend beyond others:
-
-<img align="centre" src="https://imgur.com/oAHGd1S.png">
-
-<p align="center">
-<img src="https://imgur.com/DopVJRH.png">
-</p>
-
-Examples of these regions are Manchester and Camden. To fix this a region type needs to be specified (`utla` in this case):
+**UPDATE** - the UK API now requires an area type to be specified. Select this from the drop down box on the right. 
 
 <p align="center">
 <img align="centre" src="https://imgur.com/r5k2pmE.png">
